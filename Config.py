@@ -37,7 +37,6 @@ class ZEM():
             self.navegador.find_element(By.LINK_TEXT, 'usar o WhatsApp Web').click()
 
     def enviarmensagem(self, mensagem):
-        mensagem = str(mensagem)
         self.wait.until(ec.presence_of_all_elements_located((By.XPATH, "//div[@contenteditable='true' and @data-tab='10']")))
         campodigitar = self.navegador.find_element(By.XPATH, "//div[@contenteditable='true' and @data-tab='10']")
         campodigitar.click()
@@ -48,23 +47,24 @@ class ZEM():
         self.wait.until(ec.presence_of_all_elements_located((By.LINK_TEXT, ultimonumero)))
         numero = self.navegador.find_element(By.LINK_TEXT, ultimonumero)
         numero.click()
-        time.sleep(2)
+        self.wait.until(ec.presence_of_all_elements_located((By.XPATH, '//div[@aria-label="Conversar com "]')))
         self.navegador.find_element(By.XPATH, '//div[@aria-label="Conversar com "]').click()
+        time.sleep(2)
 
     def lerdados(self, dado):
         with open(dado, 'r', encoding='UTF-8') as filename:
             filename = filename.read()
             return filename 
     
-    def backmain(self):
-        try:
-            self.wait5.until(ec.presence_of_all_elements_located((By.LINK_TEXT, 'Pesquisar')))
-            pesquisar = self.navegador.find_element(By.LINK_TEXT, 'Pesquisar')
-        except:
-            self.wait5.until(ec.presence_of_all_elements_located((By.XPATH, '//span[@data-icon="search"]')))
-            pesquisar = self.navegador.find_element(By.XPATH, '//span[@data-icon="search"]')
+    def backmain(self, seunumero):
+        seunumero = str(seunumero)
+        self.wait5.until(ec.presence_of_all_elements_located((By.XPATH, '//span[@data-icon="search"]')))
+        pesquisar = self.navegador.find_element(By.XPATH, '//span[@data-icon="search"]')
         pesquisar.click()
-        pesquisar1 = self.navegador.find_element(By.XPATH,)
+        pesquisar1 = self.navegador.find_element(By.XPATH, '//div[@aria-autocomplete="list"]')
+        pesquisar1.send_keys('você')
+        self.wait5.until(ec.presence_of_all_elements_located((By.XPATH, f'//span[@dir="auto" and @title="{seunumero}"]')))
+        self.navegador.find_element(By.XPATH, f'//span[@dir="auto" and @title="{seunumero}"]').click()
         
 
         

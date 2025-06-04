@@ -1,5 +1,7 @@
 from Config import ZEM
 from pathlib import Path
+import random
+import time
 
 ZEM = ZEM()
 
@@ -16,16 +18,23 @@ while True:
     contactmain = ZEM.lerdados(maincontact)
     mensagem = ZEM.lerdados(mensagemfile)
 
+    contactmain1 = contactmain[4:]
+    contactmain2 = contactmain1[2:3]
+    contactmain1 = contactmain1.replace(contactmain2, '9')
+    contactmain2 = contactmain1[7:8]
+    contactmain1 = contactmain1.replace(contactmain2, '')
 
-    print(contactmain)
+
 
     ZEM.abrir()
-    ZEM.backmain()
-    # ZEM.maincontactAPI(contactmain)
+    ZEM.maincontactAPI(contactmain1)
+    ZEM.enviarmensagem(dadosnumeros)
+    ZEM.abirnumero(dadosnumeros)
+    time.sleep(random.randint(1,3))
+    ZEM.enviarmensagem(mensagem)
+    ZEM.backmain(contactmain)
 
-    # ZEM.enviarmensagem(mensagem)
 
-    # ZEM.abirnumero(dadosnumeros)
 
     input()
     
