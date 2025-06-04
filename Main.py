@@ -14,7 +14,7 @@ while True:
     print('Primeiro digite a mensagem que você quer mandar')
     print('Certo, Muito obrigado por ter digitado')
 
-    dadosnumeros = ZEM.lerdados(numerosPE)
+    dadosnumeros = ZEM.lerdados(numerosPE).rsplit()
     contactmain = ZEM.lerdados(maincontact)
     mensagem = ZEM.lerdados(mensagemfile)
 
@@ -28,11 +28,15 @@ while True:
 
     ZEM.abrir()
     ZEM.maincontactAPI(contactmain1)
-    ZEM.enviarmensagem(dadosnumeros)
-    ZEM.abirnumero(dadosnumeros)
-    time.sleep(random.randint(1,3))
-    ZEM.enviarmensagem(mensagem)
-    ZEM.backmain(contactmain)
+    for enviar in dadosnumeros:
+        ZEM.enviarmensagem(enviar)
+        time.sleep(random.randint(1,3))
+        ZEM.abirnumero(enviar)
+        time.sleep(random.randint(1,3))
+        ZEM.enviarmensagem(mensagem)
+        time.sleep(random.randint(1,3))
+        ZEM.backmain(contactmain)
+        time.sleep(random.randint(1,8))
 
 
 

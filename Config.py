@@ -46,6 +46,7 @@ class ZEM():
     def abirnumero(self, ultimonumero):
         self.wait.until(ec.presence_of_all_elements_located((By.LINK_TEXT, ultimonumero)))
         numero = self.navegador.find_element(By.LINK_TEXT, ultimonumero)
+        time.sleep(1)
         numero.click()
         self.wait.until(ec.presence_of_all_elements_located((By.XPATH, '//div[@aria-label="Conversar com "]')))
         self.navegador.find_element(By.XPATH, '//div[@aria-label="Conversar com "]').click()

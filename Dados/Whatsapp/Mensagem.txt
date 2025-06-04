@@ -1,1 +1,1 @@
-Opa Anton, tudo bem, se você recebeu essa mensagem é porque o bot já está funcionando para mandar mensagens simples Muito obrigado
+Opa, se você está lendo isso, é porque o bot, está conseguindo enviar mensagem para vários contatos
