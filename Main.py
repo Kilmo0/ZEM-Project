@@ -5,6 +5,7 @@ ZEM = ZEM()
 
 numerosPE = Path("Dados/Whatsapp/Numeros.txt")
 maincontact = Path("Dados/Whatsapp/mainwhatsapp.txt")
+mensagemfile = Path("Dados/Whatsapp/mensagem.txt")
 
 while True:
     print('Bem vindo ao ZEM, vamos usar começar com algo simples')
@@ -13,15 +14,18 @@ while True:
 
     dadosnumeros = ZEM.lerdados(numerosPE)
     contactmain = ZEM.lerdados(maincontact)
+    mensagem = ZEM.lerdados(mensagemfile)
+
 
     print(contactmain)
 
     ZEM.abrir()
-    ZEM.maincontactAPI(contactmain)
+    ZEM.backmain()
+    # ZEM.maincontactAPI(contactmain)
 
-    ZEM.enviarmensagem(dadosnumeros)
+    # ZEM.enviarmensagem(mensagem)
 
-    ZEM.abirnumero(dadosnumeros)
+    # ZEM.abirnumero(dadosnumeros)
 
     input()
     

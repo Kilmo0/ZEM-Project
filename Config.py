@@ -55,7 +55,16 @@ class ZEM():
         with open(dado, 'r', encoding='UTF-8') as filename:
             filename = filename.read()
             return filename 
-
+    
+    def backmain(self):
+        try:
+            self.wait5.until(ec.presence_of_all_elements_located((By.LINK_TEXT, 'Pesquisar')))
+            pesquisar = self.navegador.find_element(By.LINK_TEXT, 'Pesquisar')
+        except:
+            self.wait5.until(ec.presence_of_all_elements_located((By.XPATH, '//span[@data-icon="search"]')))
+            pesquisar = self.navegador.find_element(By.XPATH, '//span[@data-icon="search"]')
+        pesquisar.click()
+        pesquisar1 = self.navegador.find_element(By.XPATH,)
         
 
         
