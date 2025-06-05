@@ -29,7 +29,6 @@ class ZEM():
         self.wait.until(ec.presence_of_all_elements_located((By.ID, 'action-button')))
         self.navegador.find_element(By.ID, 'action-button').click()
         try:
-            # time.sleep(2)
             self.wait5.until(ec.element_to_be_clickable((By.LINK_TEXT, 'use WhatsApp Web')))
             self.navegador.find_element(By.LINK_TEXT, 'use WhatsApp Web').click()
         except:
@@ -67,5 +66,20 @@ class ZEM():
         self.wait5.until(ec.presence_of_all_elements_located((By.XPATH, f'//span[@dir="auto" and @title="{seunumero}"]')))
         self.navegador.find_element(By.XPATH, f'//span[@dir="auto" and @title="{seunumero}"]').click()
         
+    def sendimage(self, figura):
+        time.sleep(1)
+        self.navegador.find_element(By.XPATH, '//span[@data-icon="plus"]').click()
+        self.wait5.until(ec.presence_of_all_elements_located((By.XPATH, '//span[@class="xdod15v xzwifym x6ikm8r x10wlt62 xlyipyv xuxw1ft"]')))
+        # self.navegador.find_element(By.XPATH, '//span[@class="xdod15v xzwifym x6ikm8r x10wlt62 xlyipyv xuxw1ft"]').click()
+        time.sleep(1)
+        upload_input = self.navegador.find_element(By.XPATH, '//input[@accept="image/*,video/mp4,video/3gpp,video/quicktime"]')
+        upload_input.send_keys(str(figura))
+        self.wait5.until(ec.presence_of_all_elements_located((By.XPATH, '//span[@data-icon="send"]')))
+        self.navegador.find_element(By.XPATH, '//span[@data-icon="send"]').click()
+
+    # def upload(self, figura):
+    #     upload_input = self.navegador.find_element(By.CSS_SELECTOR, "input[type='file']")
+    #     upload_input.send_keys(str(figura))
+
 
         
