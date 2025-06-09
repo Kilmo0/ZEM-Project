@@ -2,20 +2,46 @@ from Config import ZEM
 from pathlib import Path
 import random
 import time
+import webbrowser
 
 
-ZEM = ZEM()
 
 numerosPE = Path("Dados/Whatsapp/Numeros.txt")
 maincontact = Path("Dados/Whatsapp/mainwhatsapp.txt")
 mensagemfile = Path("Dados/Whatsapp/mensagem.txt")
 imagem = Path('Dados/Imagem/imagem.jpeg').resolve()
 
+print('-'*30)
+print('Seja bem vindo ao progrmaa ZEM')
+time.sleep(2)
+print('='*30)
+print('='*30)
+print('Você já usou o programa ou é a primeira vez?')
 
 while True:
-    print('Bem vindo ao ZEM, vamos usar começar com algo simples')
-    print('Primeiro digite a mensagem que você quer mandar')
-    print('Certo, Muito obrigado por ter digitado')
+    inicio = input('Digite 1 Caso já usou o programa\n digite 2 caso nunca usou')
+    try:
+        match inicio:
+            case '1':
+                print('Vamos começar')
+                time.sleep(1)
+                print('='*30)*5
+                
+                break
+            case '2':
+                print('Certo, iremos abrir um video ensinando como usar')
+                webbrowser.open('https://www.youtube.com/watch?v=ESx_hy1n7HA')
+                input('Precione enter para continuar')
+                break
+    except:
+        print('Ops, não consegui entender o que você quis dizer 😥')
+        time.sleep(2)
+        print('Vamos tentar novamente')
+    
+
+
+ZEM = ZEM()
+while True:
 
     dadosnumeros = ZEM.lerdados(numerosPE).rsplit()
     contactmain = ZEM.lerdados(maincontact)
