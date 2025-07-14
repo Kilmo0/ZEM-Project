@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait 
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.keys import Keys
-from pathlib import Path
 import time
 
 
@@ -11,7 +10,6 @@ import time
 class ZEM():
     def __init__(self):
         self.navegador = webdriver.Chrome()
-        # self.newtab = self.navegador.switch_to.new_window('tab') 
         self.wait = WebDriverWait(self.navegador, 60)
         self.wait5 = WebDriverWait(self.navegador, 5)
 
@@ -70,16 +68,9 @@ class ZEM():
         time.sleep(1)
         self.navegador.find_element(By.XPATH, '//span[@data-icon="plus"]').click()
         self.wait5.until(ec.presence_of_all_elements_located((By.XPATH, '//span[@class="xdod15v xzwifym x6ikm8r x10wlt62 xlyipyv xuxw1ft"]')))
-        # self.navegador.find_element(By.XPATH, '//span[@class="xdod15v xzwifym x6ikm8r x10wlt62 xlyipyv xuxw1ft"]').click()
         time.sleep(1)
         upload_input = self.navegador.find_element(By.XPATH, '//input[@accept="image/*,video/mp4,video/3gpp,video/quicktime"]')
         upload_input.send_keys(str(figura))
         self.wait5.until(ec.presence_of_all_elements_located((By.XPATH, '//span[@data-icon="send"]')))
         self.navegador.find_element(By.XPATH, '//span[@data-icon="send"]').click()
 
-    # def upload(self, figura):
-    #     upload_input = self.navegador.find_element(By.CSS_SELECTOR, "input[type='file']")
-    #     upload_input.send_keys(str(figura))
-
-
-        

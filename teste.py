@@ -1,16 +1,8 @@
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
-from pathlib import Path
+from tkinter import *
 
-file = Path('Dados/imagens/TESTE.png')
+main = Tk()
+main.title("Teste")
+main.geometry("1920x1080")
+main.configure(background="#350C92")
+main.mainloop()
 
-navegador = webdriver.Chrome()
-navegador.get('https://google.com/')
-upload = navegador.find_element(By.ID, "upload")
-
-pesquisar = navegador.find_element(By.CLASS_NAME, 'gLFyf')
-pesquisar.click()
-upload.send_keys(file)
-
-input()
